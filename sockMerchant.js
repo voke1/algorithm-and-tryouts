@@ -3,7 +3,8 @@
 const sockMerchant = (n, ar) => {
     let numOfPairs = 0
     let socks = []
-    ar.forEach((sock) => {
+    let sortAr = ar.sort((a, b) => a - b)
+    sortAr.forEach((sock) => {
         if (!socks.includes(sock)) {
             socks.push(sock)
         } else {
