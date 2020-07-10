@@ -1,6 +1,7 @@
 //Hackerrank Sock Merchant challenge
 
 const sockMerchant = (n, ar) => {
+
     let numOfPairs = 0
     let socks = []
     let sortAr = ar.sort((a, b) => a - b)
@@ -15,7 +16,6 @@ const sockMerchant = (n, ar) => {
     })
     console.log(numOfPairs)
     return numOfPairs;
-
+    
 }
-
 sockMerchant(10, [1, 1, 3, 1, 2, 1, 3, 3, 3, 3])  

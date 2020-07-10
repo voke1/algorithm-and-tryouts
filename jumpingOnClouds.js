@@ -14,7 +14,6 @@ const jumpingOnClouds = (array) => {
         return a + b;
     }, 0);
 
-    console.log('sum:', sum)
     return sum;
 
 }
