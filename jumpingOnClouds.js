@@ -1,7 +1,6 @@
 const jumpingOnClouds = (array) => {
     const indexArray = [];
     for (let index = 0; index <= array.length; index++) {
-        // if (array[index] !== 0 && index === 1) index += 2;
          if (array[index] === 0) {
             indexArray.push(index)
             index += 2;
