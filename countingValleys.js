@@ -18,7 +18,6 @@
 // Input Format
 
 // The first line contains an integer, the number of steps in Gary's hike.
-// The second line contains a single string, of  characters that describe his path.
 
 
 const countingValleys = (n, s) => {
