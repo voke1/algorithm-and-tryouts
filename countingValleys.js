@@ -15,7 +15,6 @@
 
 // n: the number of steps Gary takes
 // s: a string describing his path
-// Input Format
 
 // The first line contains an integer, the number of steps in Gary's hike.
 
