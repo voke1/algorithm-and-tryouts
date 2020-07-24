@@ -16,7 +16,6 @@
 // n: the number of steps Gary takes
 // s: a string describing his path
 
-// The first line contains an integer, the number of steps in Gary's hike.
 
 
 const countingValleys = (n, s) => {
