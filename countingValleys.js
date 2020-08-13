@@ -14,7 +14,6 @@
 // countingValleys has the following parameter(s):
 
 // n: the number of steps Gary takes
-// s: a string describing his path
 
 
 
