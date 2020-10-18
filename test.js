@@ -383,8 +383,8 @@ const total = numbers.reduce((sum, value) => {
     return sum + value;
 }, 0)
 
-console.log("Total: ", total)
-console.log(numbers.concat([2,1,2,'456','string']))
+console.log("Total: ", total);
+console.log(numbers.concat([2,1,2,'456','string']));
 
 console.log('slice', numbers.slice(3, 5));
 console.log(numbers.splice(3,2, 'string1', 'string2'))

@@ -14,7 +14,7 @@ const sockMerchant = (n, ar) => {
             numOfPairs++;
         }
     })
-    console.log(numOfPairs)
+    console.log(numOfPairs);
     return numOfPairs;
     
 }
