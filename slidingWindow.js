@@ -1,140 +1,140 @@
 // // //Sliding Window fixed length;
-// // //maximum sum of any contiguous subarray of size ‘k’.
-// // getMaxSum = (arr, K) => {
-// //   let currentSum = 0;
-// //   let maximumSum = -Infinity;
+// //maximum sum of any contiguous subarray of size ‘k’.
+getMaxSum = (arr, K) => {
+  let currentSum = 0;
+  let maximumSum = -Infinity;
 
-// //   for (let i = 0; i < arr.length; i++) {
-// //     currentSum = currentSum + arr[i];
-// //     if (i >= K - 1) {
-// //       maximumSum = Math.max(currentSum, maximumSum);
-// //       currentSum = currentSum - arr[i - (K - 1)];
-// //     }
-// //   }
+  for (let i = 0; i < arr.length; i++) {
+    currentSum = currentSum + arr[i];
+    if (i >= K - 1) {
+      maximumSum = Math.max(currentSum, maximumSum);
+      currentSum = currentSum - arr[i - (K - 1)];
+    }
+  }
 
-// //   return maximumSum;
-// // };
+  return maximumSum;
+};
 
 // // // console.log(getMaxSum([2, 1, 5, 1, 3, 2], 3));
 // // // console.log(getMaxSum([2, 3, 4, 1, 5], 2));
 
 // // // Given an array of positive integers and a number ‘S,’ find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’. Return 0 if no such subarray exists.
 
-// // getMinArrayLength = (arr, S) => {
-// //   let minLength = Infinity;
-// //   let windowSum = 0;
-// //   let windowStart = 0;
+getMinArrayLength = (arr, S) => {
+  let minLength = Infinity;
+  let windowSum = 0;
+  let windowStart = 0;
 
-// //   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-// //     windowSum += arr[windowEnd]; // add the next element
+  for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    windowSum += arr[windowEnd]; // add the next element
 
-// //     // shrink the window as small as possible until the 'window_sum' is smaller than 's'
-// //     while (windowSum >= S) {
-// //       minLength = Math.min(minLength, windowEnd - windowStart + 1);
-// //       windowSum -= arr[windowStart];
-// //       windowStart += 1; // sliding the window
-// //     }
-// //   }
+    // shrink the window as small as possible until the 'window_sum' is smaller than 's'
+    while (windowSum >= S) {
+      minLength = Math.min(minLength, windowEnd - windowStart + 1);
+      windowSum -= arr[windowStart];
+      windowStart += 1; // sliding the window
+    }
+  }
 
-// //   if (minLength === Infinity) {
-// //     return 0;
-// //   }
-// //   return minLength;
-// // };
+  if (minLength === Infinity) {
+    return 0;
+  }
+  return minLength;
+};
 
 // // // console.log(getMinArrayLength([2, 1, 5, 2, 3, 2], 7));
 
 // // // Given a string, find the length of the longest substring in it with no more than K distinct characters.
-// // getMaxSubstringLenght = (value, K) => {
-// //   // maxSub
-// //   newArray = [];
-// //   //convert string to array;
-// //   let arr = value.split("");
+getMaxSubstringLenght = (value, K) => {
+  // maxSub
+  newArray = [];
+  //convert string to array;
+  let arr = value.split("");
 
-// //   //loop through array
-// //   for (let index = 0; index < arr.length; index++) {
-// //     if (index <= K -1) {
-// //       newArray.push(arr[index]);
-// //     }
+  //loop through array
+  for (let index = 0; index < arr.length; index++) {
+    if (index <= K -1) {
+      newArray.push(arr[index]);
+    }
 
-// //     countUnique = new Set(newArray).size;
-// //     console.log("count:", countUnique);
-// //     if(index > K -1){
+    countUnique = new Set(newArray).size;
+    console.log("count:", countUnique);
+    if(index > K -1){
 
-// //       if (newArray.includes(arr[index]) && countUnique >= K) {
-// //         newArray.push(arr[index]);
-// //       }
-// //     }
-// //   }
+      if (newArray.includes(arr[index]) && countUnique >= K) {
+        newArray.push(arr[index]);
+      }
+    }
+  }
 
-// //   return newArray.join("");
-// // };
+  return newArray.join("");
+};
 
 // // // console.log(getMaxSubstringLenght("araaci", 1));
 
 // // //Baseball Game
-// // calPoints = function(ops){
-// //   let sum =0;
-// //   let newArray = [];
+calPoints = function(ops){
+  let sum =0;
+  let newArray = [];
 
-// //   for(let i = 0; i < ops.length; i++){
-// //     if(ops[i] !== "+" && ops[i] !== "D" && ops[i] !== "C"){
-// //       newArray.push(ops[i])
-// //     }
+  for(let i = 0; i < ops.length; i++){
+    if(ops[i] !== "+" && ops[i] !== "D" && ops[i] !== "C"){
+      newArray.push(ops[i])
+    }
 
-// //     if(ops[i] == "+"){
-// //     numArray =  newArray.map((element, index)=> {
-// //         return parseInt(element)
-// //       })
+    if(ops[i] == "+"){
+    numArray =  newArray.map((element, index)=> {
+        return parseInt(element)
+      })
 
-// //      addValue = numArray[numArray.length - 1] + numArray[numArray.length - 2]
-// //       newArray.push(addValue)
-// //     }
+     addValue = numArray[numArray.length - 1] + numArray[numArray.length - 2]
+      newArray.push(addValue)
+    }
 
-// //     if(ops[i] == "D"){
-// //       dValue = newArray[newArray.length - 1] * 2;
-// //       newArray.push(dValue);
-// //     }
+    if(ops[i] == "D"){
+      dValue = newArray[newArray.length - 1] * 2;
+      newArray.push(dValue);
+    }
 
-// //     if(ops[i] == "C"){
-// //        newArray.pop([newArray.length -1])
-// //     }
-// //   }
+    if(ops[i] == "C"){
+       newArray.pop([newArray.length -1])
+    }
+  }
 
-// //   for(let i = 0; i < newArray.length; i++){
-// //     num = parseInt(newArray[i])
-// //     sum += num;
-// //   }
+  for(let i = 0; i < newArray.length; i++){
+    num = parseInt(newArray[i])
+    sum += num;
+  }
 
-// //   return sum;
+  return sum;
 
-// // }
+}
 
 // // // console.log(calPoints(["5", "2", "C", "D", "+"]));
 // // // console.log(calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"]));
 // // // console.log(calPoints(["1"]));
 
-// // checkChar = (arr)=> {
-// //   let array1 = arr.split("")
-// //   let array2 = [];
-// //   for(let i = 0; i < array1.length; i ++){
-// //     let item2 = array2[array2.length - 1];
+checkChar = (arr)=> {
+  let array1 = arr.split("")
+  let array2 = [];
+  for(let i = 0; i < array1.length; i ++){
+    let item2 = array2[array2.length - 1];
 
-// //     if(array1[i] == "[" || array1[i] == "{" || array1[i] == "("){
-// //       array2.push(array1[i]);
+    if(array1[i] == "[" || array1[i] == "{" || array1[i] == "("){
+      array2.push(array1[i]);
 
-// //     }
-// //       if (
-// //         (item2 == "[" && array1[i] == "]") ||
-// //         (item2 == "{" && array1[i] == "}") ||
-// //         (item2 == "(" && array1[i] == ")")
-// //       ) {
-// //         array2.pop();
-// //       }
-// //   }
+    }
+      if (
+        (item2 == "[" && array1[i] == "]") ||
+        (item2 == "{" && array1[i] == "}") ||
+        (item2 == "(" && array1[i] == ")")
+      ) {
+        array2.pop();
+      }
+  }
 
-// //   return (array2.length ? "invalid" : "valid")
-// // }
+  return (array2.length ? "invalid" : "valid")
+}
 
 // // sayHi = ()=> {
 // //   console.log(name);
@@ -367,21 +367,21 @@
 // const str = "the quick brown fox jumps over a lazy dog";
 // console.log(str);
 
-// const capitalizeWords = (str) => {
-//   let result = str.split("");
-//   for (let index = 0; index < result.length; index++) {
-//     result[0].toUpperCase();
+const capitalizeWords = (str) => {
+  let result = str.split("");
+  for (let index = 0; index < result.length; index++) {
+    result[0].toUpperCase();
 
-//     if (result[index] == " ") {
-//       console.log(result);
-//       result[index + 1] = result[index + 1].toUpperCase();
-//     }
-//   }
-//   // console.log(result)
-//   let capitalizeStr = result.join("");
-//   console.log(capitalizeStr);
-//   return capitalizeStr;
-// };
+    if (result[index] == " ") {
+      console.log(result);
+      result[index + 1] = result[index + 1].toUpperCase();
+    }
+  }
+  // console.log(result)
+  let capitalizeStr = result.join("");
+  console.log(capitalizeStr);
+  return capitalizeStr;
+};
 
 // capitalizeWords(str);
 

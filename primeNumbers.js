@@ -31,11 +31,11 @@ const isPrime2 = (num) => {
   return true;
 };
 
-console.log("result", isPrime2(55));
-console.log("result", isPrime2(4));
-console.log("result", isPrime2(2));
-console.log("result", isPrime2(7));
-console.log("result", isPrime2(5));
-console.log("result", isPrime2(3));
-console.log("result", isPrime2(8));
-console.log("result", isPrime2(10));
+// console.log("result", isPrime2(55));
+// console.log("result", isPrime2(4));
+// console.log("result", isPrime2(2));
+// console.log("result", isPrime2(7));
+// console.log("result", isPrime2(5));
+// console.log("result", isPrime2(3));
+// console.log("result", isPrime2(8));
+// console.log("result", isPrime2(10));

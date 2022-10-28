@@ -9,8 +9,8 @@ const cyclicSort = (arr) => {
     } else {
       index++;
     }
-  }
-
+  }     
+ 
   return arr;
 };
 
