@@ -72,7 +72,7 @@ class BinarySearchTree {
       this.inOrder(root.right);
     }
   }
-  
+
   postOrder(root) {
     if (root) {
       this.postOrder(root.left);
@@ -221,7 +221,7 @@ var levelOrder = function (root) {
 
   while (queue.length > 0) {
     let queueLength = queue.length;
-    console.log(queue.length);
+    console.log({qlength: queue.length});
 
     let currLevel = [];
 
@@ -231,21 +231,24 @@ var levelOrder = function (root) {
       if (curr?.left) queue.push(curr.left);
       if (curr?.right) queue.push(curr.right);
       currLevel.push(curr.val);
+      console.log({ currLevel });
     }
 
     result.push(currLevel);
+    console.log({ result });
   }
 
+  console.log({ finalRes: result });
   return result;
 };
 
-console.log(levelOrder([3, 9, 20, null, null, 15, 7]));
+levelOrder([3, 9, 20, null, null, 15, 7]);
 
 // breadthFirstTraversal(a);
 // console.log("---------------");
 // depthFirstTraversal(a);
-bfs(a, "e"); //true
-bfs(a, "z"); //false
+// bfs(a, "e"); //true
+// bfs(a, "z"); //false
 
 // const bst = new BinarySearchTree();
 // console.log("tree is empty:", bst.isEmpty());

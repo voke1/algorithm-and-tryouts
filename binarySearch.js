@@ -144,5 +144,110 @@ var sortColors = function (nums) {
 
   return answer;
 };
-console.log("result", sortColors([2, 0, 2, 1, 1, 0]));
+
+/**
+  time: O(log(min(n, m))
+      - modified binary search
+  space: O(1)
+      - note the small and large array consts are references, not new array copies
+ */
+const findMedianSortedArrays = (nums1, nums2) => {
+  const small = nums1.length < nums2.length ? nums1 : nums2;
+  const large = nums1.length >= nums2.length ? nums1 : nums2;
+
+  const sLength = small.length;
+  const lLength = large.length;
+  const totalSize = sLength + lLength;
+  const isOdd = totalSize % 2 === 0;
+
+  let start = 0;
+  let end = sLength;
+
+  while (start <= end) {
+    const sMid = Math.floor((end - start) / 2) + start;
+    const lMid = Math.floor((totalSize + 1) / 2) - sMid;
+
+    console.log({sMid, lMid, start, end})
+
+    const sLeftNum = sMid === 0 ? -Infinity : small[sMid - 1];
+    const sRightNum = sMid === sLength ? Infinity : small[sMid];
+
+    const lLeftNum = lMid === 0 ? -Infinity : large[lMid - 1];
+    const lRightNum = lMid === lLength ? Infinity : large[lMid];
+
+    // Positive terminal condition; found middle
+    if (lLeftNum <= sRightNum && sLeftNum <= lRightNum) {
+      const leftVal = Math.max(sLeftNum, lLeftNum);
+
+      if (isOdd) {
+        const rightVal = Math.min(sRightNum, lRightNum);
+        return (leftVal + rightVal) / 2;
+      } else {
+        return leftVal;
+      }
+    }
+    // otherwise continue binary search
+    else if (sLeftNum > lRightNum) {
+      end = sMid - 1;
+    } else {
+      start = sMid + 1;
+    }
+  }
+};
+
+
+
+
+/**
+  time: O(log(min(n, m))
+      - modified binary search
+  space: O(1)
+      - note the small and large array consts are references, not new array copies
+ */
+const findMedianSortedArrays1 = (nums1, nums2) => {
+  const small = nums1.length < nums2.length ? nums1 : nums2;
+  const large = nums1.length >= nums2.length ? nums1 : nums2;
+
+  const sLength = small.length;
+  const lLength = large.length;
+  const totalSize = sLength + lLength;
+  const isOdd = totalSize % 2 === 0;
+
+  let start = 0;
+  let end = sLength;
+
+  while (start <= end) {
+    const sMid = Math.floor((end + start) / 2);
+    const lMid = Math.floor((totalSize) / 2) - sMid +1;
+
+    console.log({sMid, lMid, start, end})
+
+    const sLeftNum = sMid === 0 ? -Infinity : small[sMid - 1];
+    const sRightNum = sMid === sLength ? Infinity : small[sMid];
+
+    const lLeftNum = lMid === 0 ? -Infinity : large[lMid - 1];
+    const lRightNum = lMid === lLength ? Infinity : large[lMid];
+
+    // Positive terminal condition; found middle
+    if (lLeftNum <= sRightNum && sLeftNum <= lRightNum) {
+      const leftVal = Math.max(sLeftNum, lLeftNum);
+
+      if (isOdd) {
+        const rightVal = Math.min(sRightNum, lRightNum);
+        return (leftVal + rightVal) / 2;
+      } else {
+        return leftVal;
+      }
+    }
+    // otherwise continue binary search
+    else if (sLeftNum > lRightNum) {
+      end = sMid - 1;
+    } else {
+      start = sMid + 1;
+    }
+  }
+};
+
+console.log("result", findMedianSortedArrays([1, 3], [2]));
+console.log("result2", findMedianSortedArrays1([1, 3], [2]));
 // console.log("result", findPairs([-5, 2, 4, 6, 10], 10));
